@@ -111,4 +111,12 @@ The program complex consists of two components:
 8. Configuration settings:
 	- config.c for Bootkit and info.ini for Linux/AIX and Windows.
 	- In config.c parameters are set, e.g. C2 server (host or IP) before compilation.
+9. Additional features for Linux/AIX:
+	- UNIX sockets support, send/recv interception via dlsym for dynamic binding and interception.
+	- Creating log directories via mkdir and stat with write permission checking.
+
+10. Bootkit/Injector Features:
+	- Bootkit intercepts OS booting with Ring-0 privileges, allowing Injector to boot with SYSTEM privileges.
+	- Injector injects DLL/XCOFF into the process at the kernel level.
+	- Delayed Unload is supported for safe shutdown without breaking the device.
 	
