@@ -78,33 +78,37 @@ The program complex consists of two components:
 	- An agent on the target device.
 	- A web interface to control the bots and automatically inject the DLL into the process on the server.
 
-6. List of processes on processing servers
+6. List of processes on processing servers: 
 
 ### AIX/Linux:
 	- Transaction Processing:
 	- TPMMainProc
 	- TransactionManager
 	- ProcessServer
+ 
 	- Networking:
 	- NetDaemon
 	- CommService
 	- NetHandler
 	- fork()
+ 
 	- System Administration:
 	- SysMgmtDaemon
 	- ResManager
 	- SysMonitor
 
-# Windows:
+### Windows:
 	- Transaction Processing:
 	- TransactServer
 	- ProcManager
 	- SQLService
+ 
 	- Networking:
 	- NetworkService
 	- NetComm
 	- RPCSS
 	- Azure Service Bus
+ 
 	- System Administration:
 	- WinMgmt
 	- TaskManager
