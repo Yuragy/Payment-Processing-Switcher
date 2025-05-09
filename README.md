@@ -2,6 +2,14 @@
 # How does it work?
 ![](./scr/symantec-fastcashnov2018.jpg)
 
+The presented scheme illustrates the mechanism of an attack on a banks processing system using the Fastcash malware. Attackers exploit compromised servers to intercept and manipulate financial transactions.
+
+The attack begins with the initiation of a fraudulent cash withdrawal request through ATMs using stolen card data (PAN). The malware, implanted in the bank’s processing system, intercepts the request and modifies it, generating a fake approval message for the transaction.
+
+As a result, the payment application processes fraudulent requests as legitimate, allowing attackers to withdraw cash while bypassing standard validation mechanisms. During the attack, a false transaction authorization is generated, enabling the attackers to siphon money from ATMs without actually debiting the target account.
+
+The primary objective of such an attack is to compromise the payment gateway and circumvent the monitoring and security systems of the processing center. The malware effectively disguises fraudulent transactions as legitimate, making timely detection challenging.
+
 # Project structure
 1. config: 
 Contains configuration files and auxiliary utilities.
