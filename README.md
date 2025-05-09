@@ -1,7 +1,7 @@
 ⚠️ ⚠️ ⚠️ We condemn any attempt to apply these mechanics, this repository was created for educational purposes for security research.
 
 # Project structure
-1. config
+1. config: 
 Contains configuration files and auxiliary utilities.
 	- blk.dat: List of locked transactions in key-value format.
 	- decryptJackpot.cpp: Utility to decrypt the created jackpot logs.
@@ -9,7 +9,7 @@ Contains configuration files and auxiliary utilities.
 	- info.dat: List of PAN (Primary Account Number) numbers in key-value format.
 	- info.ini: Configuration file containing data from info.dat and blk.dat, defining key operational parameters.
 
-2. injector.
+2. injector: 
 
 This directory contains injector code for the AIX/Linux and Windows platforms.
 	- inAIX:
@@ -19,7 +19,7 @@ This directory contains injector code for the AIX/Linux and Windows platforms.
 	- injectorW.cpp: An injector for Windows, responsible for injecting a DLL into the target process.
 	- makefile: Windows injector build script.
 
-3. scr
+3. scr: 
 
 Contains source code and libraries for handling ISO 8583 messages. It is divided into directories for AIX/Linux and Windows.
 	- aix:
