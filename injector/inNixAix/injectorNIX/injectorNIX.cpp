@@ -1,4 +1,3 @@
-// x86_64 arch
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -83,12 +82,9 @@ std::string getCurrentDirectory() {
 }
 
 void* remoteMmap(pid_t pid, size_t size) {
-    // Используем mmap для выделения памяти в процессе
     struct user_regs_struct regs, backup;
-    ptrace(PTRACE_GETREGS, pid, nullptr, &backup);  // Сохраняем оригинальные регистры
+    ptrace(PTRACE_GETREGS, pid, nullptr, &backup);  
     regs = backup;
-
-    // Настраиваем регистры для вызова mmap в целевом процессе
     regs.rdi = 0;  // addr = NULL
     regs.rsi = size;  // length = size
     regs.rdx = PROT_READ | PROT_WRITE | PROT_EXEC;  // prot
@@ -98,15 +94,11 @@ void* remoteMmap(pid_t pid, size_t size) {
     ptrace(PTRACE_CONT, pid, nullptr, nullptr);
     waitpid(pid, nullptr, 0);
 
-    ptrace(PTRACE_GETREGS, pid, nullptr, &regs);  // Получаем результат mmap
+    ptrace(PTRACE_GETREGS, pid, nullptr, &regs);
     void* addr = (void*)regs.rax;
-
-    // Восстанавливаем оригинальные регистры
     ptrace(PTRACE_SETREGS, pid, nullptr, &backup);
     return addr;
 }
-
-// Функция для побайтовой записи данных в целевой процесс
 bool writeDataToProcess(pid_t pid, void* remoteAddr, const void* data, size_t len) {
     for (size_t i = 0; i < len; ++i) {
         unsigned char byte = *(reinterpret_cast<const unsigned char*>(data) + i);
@@ -143,23 +135,18 @@ bool injectLibrary(pid_t pid, const char* libPath) {
     }
 
     size_t libPathLen = strlen(libPath) + 1;
-
-    // Выделяем память в целевом процессе
     void* remoteLibPath = remoteMmap(pid, libPathLen);
     if (remoteLibPath == nullptr) {
         std::cerr << "Failed to allocate memory in the target process" << std::endl;
         ptrace(PTRACE_DETACH, pid, NULL, 0);
         return false;
     }
-
-    // Пишем путь к библиотеке побайтово в выделенную память
     if (!writeDataToProcess(pid, remoteLibPath, libPath, libPathLen)) {
         std::cerr << "Failed to write data to the target process." << std::endl;
         ptrace(PTRACE_DETACH, pid, NULL, 0);
         return false;
     }
 
-    // Настраиваем регистры для вызова dlopen
     regs.rdi = (unsigned long)remoteLibPath;  // Аргумент для dlopen
     regs.rsi = RTLD_NOW;                      // Флаг для dlopen
     regs.rip = (unsigned long)dlopenAddr;     // Адрес dlopen
