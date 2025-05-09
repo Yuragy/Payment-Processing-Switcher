@@ -122,6 +122,6 @@ The program complex consists of two components:
 	- Injector injects DLL/XCOFF into the process at the kernel level.
 	- Delayed Unload is supported for safe shutdown without breaking the device.
 
- Sources: 
+ # Sources: 
  - https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-239a
  - https://www.youtube.com/watch?v=zGvQPtejX9w
