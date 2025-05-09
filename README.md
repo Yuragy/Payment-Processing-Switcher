@@ -1,1 +1,1 @@
-# Machine learning model engines, integration into different modules and immersion into the world of LLMs
+We condemn any attempt to apply these mechanics, this repository was created for educational purposes for security research.
