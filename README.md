@@ -68,7 +68,7 @@ The program complex consists of two components:
 
 6. List of processes on processing servers
 
-AIX/Linux:
+# AIX/Linux:
 	- Transaction Processing:
 	- TPMMainProc
 	- TransactionManager
@@ -83,7 +83,7 @@ AIX/Linux:
 	- ResManager
 	- SysMonitor
 
-Windows:
+# Windows:
 	- Transaction Processing:
 	- TransactServer
 	- ProcManager
