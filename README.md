@@ -142,8 +142,8 @@ Attackers use Trojan to compromise the processing server and manipulate ATM tran
 # Protect:
 
 	•	Segmentation and Isolation: Separate the processing server from other subsystems and restrict network access.
-	•	Software Integrity Control: Implement cryptographic verification (checksums, signatures) for applications and configurations.
-	•	Log Monitoring and Analysis: Configure SIEM/IDS systems to detect anomalous transactions and sudden “approvals.”
+	•	Software Integrity Control: Implement cryptographic verification checksums, signatures for applications and configurations.
+	•	Log Monitoring and Analysis: Configure SIEM/IDS systems to detect anomalous transactions and sudden approvals.
 	•	Multi-Factor Authentication: Enforce MFA for operators and administrators accessing critical servers.
 	•	Regular Security Testing: Conduct regular penetration tests, vulnerability scans, and timely software updates.
 	•	Hardware Security Modules - HSM: Store cryptographic keys and execute crypto operations outside the processing OS.
