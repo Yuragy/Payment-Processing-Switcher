@@ -10,7 +10,6 @@ Contains configuration files and auxiliary utilities.
 	- info.ini: Configuration file containing data from info.dat and blk.dat, defining key operational parameters.
 
 2. injector: 
-
 This directory contains injector code for the AIX/Linux and Windows platforms.
 	- inAIX:
 	- injectorAIX.cpp: An injector for AIX-based systems responsible for injecting XCOFF (shared object) into the target process.
@@ -20,7 +19,6 @@ This directory contains injector code for the AIX/Linux and Windows platforms.
 	- makefile: Windows injector build script.
 
 3. scr: 
-
 Contains source code and libraries for handling ISO 8583 messages. It is divided into directories for AIX/Linux and Windows.
 	- aix:
 	- iso8583.cpp: Implementation of functions for working with ISO 8583.
