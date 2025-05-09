@@ -32,3 +32,83 @@ Contains source code and libraries for handling ISO 8583 messages. It is divided
 	- renaski1.0.cpp: Basic code for Windows that integrates with the injector.
 
 Universal XCOFF/DLL configuration for processing servers and ATMs (AIX/Linux/Windows)
+
+The AIX version is exclusively for attacks on processing servers using renaski.xcoff together with InjectorAIX. The Windows version targets both local machines and processing servers (with server modifications). Works with renaski.dll and Kerl or renaski.dll and InjectorW.
+
+InjectorW is an alternative to Bootkit's built-in injector, allowing implementation with superuser privileges, which is important for processing servers without Bootkit.
+
+1. Verify server and ATM configurations
+	- Determine the entry points of the recv and send functions, such as WINAPI send/recv for Windows or system calls for UNIX-like.
+	- Use GDB or strace for Linux/AIX and WinDbg for Windows to analyze the functionality, entry points, and implementation process.
+	- The malware runs with superuser privileges, which allows directory creation and execution of system commands.
+
+2. Encryption and security
+	- AES-128 encryption in CBC mode with fixed IV and XOR protection is used. Dynamic encryption with unique keys for each transaction or session is recommended.
+	- Built-in security bypass mechanisms: Secure Boot bypass, Ring-0 protection, kernel-level protections prevent antivirus detection.
+	- When transmitting ISO 8583 in encrypted form, ensure that it is decrypted correctly before processing.
+
+3. Code obfuscation and protection
+	- Obfuscate code before compilation to make it difficult to analyze and reverse-engineer, especially for encryption keys, traffic interception functions, and transaction manipulation.
+	- The code uses dynamic API calls and mechanisms to bypass defenses, making it harder to detect.
+
+4. Defense Bypass Mechanisms
+	- Enabled:
+	- HVCI bypass
+	- UAC bypass
+	- Secure Boot bypass
+	- BitLocker bypass
+	- Windows Defender bypass (in-memory driver patching)
+	- Allow malware to operate at kernel level and avoid removal.
+
+5. Bootkit/Injector DLL
+
+The program complex consists of two components:
+	- An agent on the target device.
+	- A web interface to control the bots and automatically inject the DLL into the process on the server.
+
+6. List of processes on processing servers
+
+AIX/Linux:
+	- Transaction Processing:
+	- TPMMainProc
+	- TransactionManager
+	- ProcessServer
+	- Networking:
+	- NetDaemon
+	- CommService
+	- NetHandler
+	- fork()
+	- System Administration:
+	- SysMgmtDaemon
+	- ResManager
+	- SysMonitor
+
+Windows:
+	- Transaction Processing:
+	- TransactServer
+	- ProcManager
+	- SQLService
+	- Networking:
+	- NetworkService
+	- NetComm
+	- RPCSS
+	- Azure Service Bus
+	- System Administration:
+	- WinMgmt
+	- TaskManager
+	- PerfMon
+	- Azure Traffic Manager
+	
+
+7. Logging and intercepting traffic:
+	- Windows: C:\intels\Drivers\\.
+	- AIX/Linux: /var/log/cas/
+	- Files:
+	- spvmdl.dat - API interception logs
+	- TMPS.dat, TMPR.dat - sent and received messages
+	- spc.dat - metadata of encrypted messages
+
+8. Configuration settings:
+	- config.c for Bootkit and info.ini for Linux/AIX and Windows.
+	- In config.c parameters are set, e.g. C2 server (host or IP) before compilation.
+	
