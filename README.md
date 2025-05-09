@@ -37,6 +37,8 @@ The AIX version is exclusively for attacks on processing servers using renaski.x
 
 InjectorW is an alternative to Bootkit's built-in injector, allowing implementation with superuser privileges, which is important for processing servers without Bootkit.
 
+# General features
+
 1. Verify server and ATM configurations
 	- Determine the entry points of the recv and send functions, such as WINAPI send/recv for Windows or system calls for UNIX-like.
 	- Use GDB or strace for Linux/AIX and WinDbg for Windows to analyze the functionality, entry points, and implementation process.
