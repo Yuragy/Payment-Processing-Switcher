@@ -45,7 +45,7 @@ Universal XCOFF/DLL configuration for processing servers and ATMs (AIX/Linux/Win
 
 The AIX version is exclusively for attacks on processing servers using renaski.xcoff together with InjectorAIX. The Windows version targets both local machines and processing servers (with server modifications). Works with renaski.dll and Kerl or renaski.dll and InjectorW.
 
-InjectorW is an alternative to Bootkit's built-in injector, allowing implementation with superuser privileges, which is important for processing servers without Bootkit.
+InjectorW is an alternative to Bootkits built-in injector, allowing implementation with superuser privileges, which is important for processing servers without Bootkit.
 
 # General features
 
@@ -132,6 +132,19 @@ The program complex consists of two components:
 	- Injector injects DLL/XCOFF into the process at the kernel level.
 	- Delayed Unload is supported for safe shutdown without breaking the device.
 
+# Conclusion: 
+Attackers use Trojan to compromise the processing server and manipulate ATM transaction responses, allowing them to withdraw cash while bypassing standard validation checks.
+
+# Protect:
+
+	•	Segmentation and Isolation: Separate the processing server from other subsystems and restrict network access.
+	•	Software Integrity Control: Implement cryptographic verification (checksums, signatures) for applications and configurations.
+	•	Log Monitoring and Analysis: Configure SIEM/IDS systems to detect anomalous transactions and sudden “approvals.”
+	•	Multi-Factor Authentication: Enforce MFA for operators and administrators accessing critical servers.
+	•	Regular Security Testing: Conduct regular penetration tests, vulnerability scans, and timely software updates.
+	•	Hardware Security Modules - HSM: Store cryptographic keys and execute crypto operations outside the processing OS.
+ 
  # Sources: 
  - https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-239a
  - https://www.youtube.com/watch?v=zGvQPtejX9w
+   
