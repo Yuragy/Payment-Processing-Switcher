@@ -121,4 +121,6 @@ The program complex consists of two components:
 	- Bootkit intercepts OS booting with Ring-0 privileges, allowing Injector to boot with SYSTEM privileges.
 	- Injector injects DLL/XCOFF into the process at the kernel level.
 	- Delayed Unload is supported for safe shutdown without breaking the device.
-	
+
+ Sources: 
+ - https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-239a 
