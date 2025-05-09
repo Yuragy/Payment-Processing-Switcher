@@ -1,4 +1,6 @@
 ⚠️ ⚠️ ⚠️ We condemn any attempt to apply these mechanics, this repository was created for educational purposes for security research.
+# How does it work?
+![](./scr/symantec-fastcashnov2018.jpg)
 
 # Project structure
 1. config: 
