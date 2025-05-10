@@ -41,6 +41,8 @@ Contains source code and libraries for handling ISO 8583 messages. It is divided
 	- makefile
 	- renaski1.0.cpp: Basic code for Windows that integrates with the injector.
 
+⚠️ Binaries folder contains samples from the CISA article.
+
 Universal XCOFF/DLL configuration for processing servers and ATMs (AIX/Linux/Windows)
 
 The AIX version is exclusively for attacks on processing servers using renaski.xcoff together with InjectorAIX. The Windows version targets both local machines and processing servers (with server modifications). Works with renaski.dll and Kerl or renaski.dll and InjectorW.
