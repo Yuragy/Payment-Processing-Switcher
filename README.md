@@ -41,7 +41,7 @@ Contains source code and libraries for handling ISO 8583 messages. It is divided
 	- makefile
 	- renaski1.0.cpp: Basic code for Windows that integrates with the injector.
 
-⚠️ Binaries folder contains samples from the CISA article.
+⚠️ Binaries folder contains samples from the CISA article. These are artifacts from the FastC version 2016 y for AIX
 
 Universal XCOFF/DLL configuration for processing servers and ATMs (AIX/Linux/Windows)
 
