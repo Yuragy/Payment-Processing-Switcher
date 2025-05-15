@@ -74,13 +74,11 @@ InjectorW is an alternative to Bootkits built-in injector, allowing implementati
 	- Windows Defender bypass (in-memory driver patching)
 	- Allow malware to operate at kernel level and avoid removal.
 
-5. Bootkit/Injector DLL
-
-The program complex consists of two components:
+5. Bootkit/Injector DLL: program complex consists of two components:
 	- An agent on the target device.
 	- A web interface to control the bots and automatically inject the DLL into the process on the server.
 
-6. List of processes on processing servers: 
+7. List of processes on processing servers: 
 
 ### AIX/Linux:
 	- Transaction Processing:
